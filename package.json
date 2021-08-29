@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=production node app",
     "dev": "cross-env NODE_ENV=development nodemon app",
     "e2e:chrome": "cypress run --browser chrome",
-    "test:ci:record": "run-p --race start e2e:chrome"
+    "test:ci": "run-p --race start e2e:chrome"
   },
   "author": "Dhamith Hewamullage",
   "license": "MIT",
