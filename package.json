@@ -1,0 +1,32 @@
+{
+  "name": "sqlite-online",
+  "version": "1.0.0",
+  "description": "Simple web frontend for sqlite",
+  "main": "app.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app",
+    "dev": "cross-env NODE_ENV=development nodemon app",
+    "e2e:record:chrome": "cypress run --record --browser chrome",
+    "test:ci:record": "run-p --race start:ci e2e:record:chrome"
+  },
+  "author": "Dhamith Hewamullage",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
+    "find-remove": "^3.1.0",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.12",
+    "cross-env": "^7.0.3",
+    "cypress": "^8.3.1",
+    "nodemon": "^2.0.7"
+  }
+}

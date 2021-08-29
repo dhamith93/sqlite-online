@@ -1,0 +1,53 @@
+<div class="row">
+    <div id="col s12">
+        <h4>SQLite Online</h4>
+        <p>Practice SQLite queries online</p>
+    </div>
+</div>
+
+<div class="row" id="init-area">
+    <div class="col s10">
+        <span>DB status: </span>
+        <span id="db-name">DB not initiated. Click init to initialize</span>
+        <span id="remaining-mins"></span>
+    </div>
+    <div class="input-field col s2" id="init-btn-field">
+        <button class="waves-effect waves-light btn" id="init-btn">Init</button>
+    </div>
+</div>
+
+<div class="row" id="code-area">
+    <div class="col s12">
+        <div class="input-field col s10">
+            <textarea id="editing" placeholder="sql code here..."></textarea>
+        </div>  
+        <div class="input-field col s2" id="exec-btn-field">
+            <button class="waves-effect waves-light btn" id="exec-btn">Execute</button>
+        </div>
+    </div>
+</div>
+
+<p style="margin-left: 20px;">Execute a single command at a time.</p>
+
+<div class="row" id="result-area">
+    <table id="result-table" class="stripped heighlight responsive-table"></table>
+</div>
+
+<div id="history-modal" class="modal bottom-sheet">
+    <div class="modal-content">
+        <table id="history-table" class="stripped heighlight responsive-table">
+            <thead>
+                <tr>
+                    <th>Command history</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<div data-target="history-modal" class="fixed-action-btn modal-trigger">
+    <a class="btn-floating btn-large red">
+        <i class="large material-icons">history</i>
+    </a>
+</div>

@@ -1,0 +1,25 @@
+* {
+    font-family: "Fira Code", monospace;
+}
+
+#init-area {
+    font-size: 14pt;
+    height: 30px;
+    padding-left: 10px;
+}
+
+#result-area {
+    position: relative;
+}
+
+#exec-btn-field {
+    position: relative;
+    top: 40px;
+}
+
+#editing {
+    height: 120px;
+    resize: none;
+    font-family: "Fira Code", monospace;
+    font-size: 16pt;
+}
