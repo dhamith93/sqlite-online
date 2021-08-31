@@ -72,7 +72,6 @@ let execCommand = async(body) => {
             let data = {};
             try {
                 let result = await db.all(command);
-                console.log(result);
                 let headers = [];
                 let rows = []
 

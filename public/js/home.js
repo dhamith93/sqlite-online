@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const remainingMinsSpan = document.getElementById('remaining-mins');
     const modals = document.querySelectorAll('.modal');
     const instances = M.Modal.init(modals);
+    const token = document.getElementById('csrf-token').value;
+    
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
 
     let dbname = '';
     let remainingMins = 59;

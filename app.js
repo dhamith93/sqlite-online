@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan')
+const session = require('express-session');
 const exphbs = require('express-handlebars');
 const findRemoveSync = require('find-remove');
 
@@ -13,7 +14,11 @@ setInterval(() => {
 dotenv.config({ path: path.join(__dirname, '/config/config.env') });
 
 const app = express();
-
+app.use(session({
+    secret: require('crypto').randomBytes(64).toString('hex'), 
+    resave: false,
+    saveUninitialized: false
+}));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
