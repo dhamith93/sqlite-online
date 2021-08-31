@@ -1,6 +1,7 @@
 pipeline {
     environment {
         registry = 'dhamith93/sqlite-online'
+        registryCredential = 'dockerhub_id'
         dockerImage = '' 
     }
     
@@ -14,11 +15,27 @@ pipeline {
             }
         }
       
-        stage('bilding docker image') { 
+        stage('building docker image') {
             steps { 
                 script { 
                     dockerImage = docker.build registry + ":$BUILD_NUMBER" 
                 }
+            }
+        }
+        
+        stage('deploying image to docker hub') { 
+            steps { 
+                script { 
+                    docker.withRegistry('', registryCredential) { 
+                        dockerImage.push() 
+                    }
+                } 
+            }
+        } 
+
+        stage('cleaning up') { 
+            steps { 
+                sh "docker rmi $registry:$BUILD_NUMBER" 
             }
         }
     }
