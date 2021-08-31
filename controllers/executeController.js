@@ -20,7 +20,11 @@ exports.handleRequest = async(req, res) => {
             await unlink(`./files/${req.body.dbname}`);
             return;
         } else if (op === 'sqlExec') {
-            result = await execCommand(req.body);
+            if (req.body.command.length <= 500) {
+                result = await execCommand(req.body);
+            } else {
+                result = {status: 'failure', msg: 'command length exceeds 500'};    
+            }
         } else {
             result = {status: 'failure', msg: `unknown op: ${op}`};
         }
